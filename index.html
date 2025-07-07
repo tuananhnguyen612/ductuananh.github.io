@@ -6,6 +6,9 @@
   <title>Nguyễn Đức Tuấn Anh – nguyenductuananh.vn</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     .avatar-container {
       perspective: 1000px;
       position: relative;
@@ -28,11 +31,11 @@
       height: 32px;
       background: url('97373f7b-a0d6-4394-b571-923693ff6c22.png') no-repeat center;
       background-size: contain;
-      animation: pulseStar 2s infinite;
+      animation: spinStar 5s linear infinite;
     }
-    @keyframes pulseStar {
-      0%, 100% { transform: scale(1); opacity: 0.8; }
-      50% { transform: scale(1.2); opacity: 1; }
+    @keyframes spinStar {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
     .banner {
       background: url('banner.jpg') no-repeat center center;
@@ -51,23 +54,40 @@
       background: rgba(0, 0, 0, 0.5);
       z-index: 1;
     }
-    .banner h1 {
+    .typing-text {
+      font-size: 2rem;
+      font-weight: bold;
+      color: white;
       position: relative;
       z-index: 2;
-      color: white;
-      font-size: 2.5rem;
-      font-weight: bold;
-      animation: fadeInDown 1s ease-out;
+      white-space: nowrap;
+      border-right: 2px solid white;
+      overflow: hidden;
+      width: 0;
+      animation: typing 4s steps(40, end) forwards, blink 0.75s step-end infinite;
     }
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    @keyframes blink {
+      0%, 100% { border-color: transparent; }
+      50% { border-color: white; }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
   <div class="banner flex items-center justify-center">
-    <h1>Nguyễn Đức Tuấn Anh – Cybersecurity & Performance</h1>
+    <h1 class="typing-text">Nguyễn Đức Tuấn Anh – Cybersecurity & Performance</h1>
   </div>
 
   <nav class="bg-white shadow-md sticky top-0 z-50">
@@ -80,21 +100,21 @@
     </div>
   </nav>
 
-  <section id="home" class="container mx-auto my-10 px-4">
+  <section id="home" class="container mx-auto my-10 px-4 reveal">
     <h2 class="text-2xl font-semibold border-b pb-2 mb-4">Tổng quan</h2>
     <p class="leading-relaxed">
       Chào mừng đến với trang cá nhân của Nguyễn Đức Tuấn Anh – Chuyên gia An ninh mạng, tốt nghiệp loại xuất sắc tại Đại học Công nghệ Sydney (UTS) và được vinh danh Dean's List 2025. Trang web này là nơi tổng hợp hành trình, góc nhìn chuyên môn, dự án tiêu biểu và định hướng phát triển cá nhân trong lĩnh vực cybersecurity.
     </p>
   </section>
 
-  <section id="journey" class="container mx-auto my-10 px-4">
+  <section id="journey" class="container mx-auto my-10 px-4 reveal">
     <h2 class="text-2xl font-semibold border-b pb-2 mb-4">Giới thiệu & Hành trình</h2>
     <p>
       Tôi khởi đầu với nền tảng song song giữa Kinh doanh và Hệ thống Thông tin tại Đại học Sydney, trước khi phát triển chuyên sâu về An ninh mạng trong chương trình Thạc sĩ tại UTS. Trải qua nhiều vai trò từ quản trị dữ liệu, điều phối cộng đồng, tới xử lý bảo mật hệ thống, tôi không ngừng trau dồi để kết nối giữa kỹ thuật và con người, giữa bảo mật và tầm nhìn phát triển bền vững.
     </p>
   </section>
 
-  <section id="expertise" class="container mx-auto my-10 px-4">
+  <section id="expertise" class="container mx-auto my-10 px-4 reveal">
     <h2 class="text-2xl font-semibold border-b pb-2 mb-4">Góc chuyên môn</h2>
     <ul class="list-disc pl-5 space-y-2">
       <li><strong>SQL Injection Lab:</strong> Khai thác lỗ hổng SQLi trên DVWA</li>
@@ -104,7 +124,7 @@
     </ul>
   </section>
 
-  <section id="vision" class="container mx-auto my-10 px-4">
+  <section id="vision" class="container mx-auto my-10 px-4 reveal">
     <h2 class="text-2xl font-semibold border-b pb-2 mb-4">Tầm nhìn & Mục tiêu</h2>
     <ul class="list-disc pl-5 space-y-2">
       <li><strong>Ngắn hạn (2025–2026):</strong> Làm việc tại Việt Nam trong vai trò SOC Analyst hoặc Security Consultant, hoàn thiện các chứng chỉ chuyên sâu như Security+, OSCP</li>
@@ -113,7 +133,7 @@
     </ul>
   </section>
 
-  <section id="contact" class="container mx-auto my-10 px-4">
+  <section id="contact" class="container mx-auto my-10 px-4 reveal">
     <h2 class="text-2xl font-semibold border-b pb-2 mb-4">Liên hệ</h2>
     <p>Email: <a href="mailto:ndta0612@gmail.com" class="text-blue-800">ndta0612@gmail.com</a></p>
     <p>LinkedIn: <a href="https://linkedin.com/in/ductuananh" class="text-blue-800" target="_blank">linkedin.com/in/ductuananh</a></p>
@@ -123,5 +143,21 @@
   <footer class="bg-blue-100 text-center p-4 mt-10 text-sm italic">
     <p>&copy; 2025 Nguyễn Đức Tuấn Anh – Tâm sáng, trí rộng, hành động bền vững.</p>
   </footer>
+
+  <script>
+    // Scroll reveal effect
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealOnScroll = () => {
+      const windowHeight = window.innerHeight;
+      revealElements.forEach(el => {
+        const elementTop = el.getBoundingClientRect().top;
+        if (elementTop < windowHeight - 50) {
+          el.classList.add('active');
+        }
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
 </body>
 </html>
