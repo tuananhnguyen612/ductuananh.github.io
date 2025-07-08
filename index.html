@@ -6,45 +6,59 @@
   <title>Nguyễn Đức Tuấn Anh – nguyenductuananh.vn</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
   <style>
-    @keyframes fadein {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
+    @keyframes slideInCenter {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    @keyframes sparkle {
-      0%, 100% { filter: brightness(1); }
-      50% { filter: brightness(1.8); }
+    @keyframes sparkleOnce {
+      0% { filter: brightness(1); }
+      50% { filter: brightness(1.4); }
+      100% { filter: brightness(1); }
     }
-    @keyframes twinkle {
-      0% { opacity: 0; transform: scale(0.5); }
-      50% { opacity: 1; transform: scale(1.2); }
-      100% { opacity: 0; transform: scale(0.8); }
+    @keyframes movingStripesOnce {
+      0% { background-position: 0 0; }
+      100% { background-position: 100% 0; }
     }
-
-    .animate-fadein {
-      animation: fadein 1.2s ease-out forwards;
+    .banner {
+      background: url('banner.jpg') no-repeat center center;
+      background-size: cover;
+      height: 360px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      animation: sparkleOnce 2s ease-in-out 1;
     }
-    .animate-sparkle {
-      animation: sparkle 1.5s ease-in-out 1;
+    .banner h1 {
+      font-size: 2.25rem;
+      color: white;
+      font-weight: bold;
+      animation: slideInCenter 1.5s ease-out 1;
+      text-align: center;
     }
-    .animate-twinkle {
-      animation: twinkle 1.8s ease-out 1;
+    .motion-lines {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 8px;
+      background: repeating-linear-gradient(
+        45deg,
+        #00f 0,
+        #00f 10px,
+        #fff 10px,
+        #fff 20px
+      );
+      background-size: 200% 100%;
+      animation: movingStripesOnce 2s ease-in-out 1;
+      opacity: 0.7;
     }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
-  <!-- Banner mới -->
-  <div class="w-full h-64 bg-cover bg-center relative overflow-hidden" style="background-image: url('banner.jpg');">
-    <div class="w-full h-full bg-black bg-opacity-40 flex items-center justify-center animate-fadein">
-      <h1 class="text-white text-4xl font-bold text-center animate-sparkle">
-        Nguyễn Đức Tuấn Anh – Road to Great
-      </h1>
-    </div>
-    <div class="absolute inset-0 pointer-events-none overflow-hidden">
-      <div class="absolute w-2 h-2 bg-white rounded-full opacity-60 animate-twinkle" style="top: 30%; left: 20%;"></div>
-      <div class="absolute w-1.5 h-1.5 bg-white rounded-full opacity-50 animate-twinkle delay-300" style="top: 60%; left: 70%;"></div>
-      <div class="absolute w-1 h-1 bg-white rounded-full opacity-40 animate-twinkle delay-500" style="top: 50%; left: 40%;"></div>
-    </div>
-  </div>
+  <header class="banner">
+    <h1>Nguyễn Đức Tuấn Anh – Road to Great</h1>
+    <div class="motion-lines"></div>
+  </header>
 
   <nav class="bg-white shadow-md sticky top-0 z-50">
     <div class="container mx-auto flex justify-center space-x-6 py-3 text-blue-900 font-medium">
@@ -59,4 +73,45 @@
   <section id="home" class="container mx-auto my-10 px-4">
     <h2 class="text-2xl font-semibold border-b pb-2 mb-4">Tổng quan</h2>
     <p class="leading-relaxed">
-      Chào mừng đến với trang cá nhân của Nguyễn Đức Tuấn Anh – Chuyên gia An ninh mạng, tốt nghiệp loại xuất sắc tại Đại học Công nghệ Sydney (UTS) và được vin
+      Chào mừng đến với trang cá nhân của Nguyễn Đức Tuấn Anh – Chuyên gia An ninh mạng, tốt nghiệp loại xuất sắc tại Đại học Công nghệ Sydney (UTS) và được vinh danh Dean's List 2025. Trang web này là nơi tổng hợp hành trình, góc nhìn chuyên môn, dự án tiêu biểu và định hướng phát triển cá nhân trong lĩnh vực cybersecurity.
+    </p>
+  </section>
+
+  <section id="journey" class="container mx-auto my-10 px-4">
+    <h2 class="text-2xl font-semibold border-b pb-2 mb-4">Giới thiệu & Hành trình</h2>
+    <p>
+      Tôi khởi đầu với nền tảng song song giữa Kinh doanh và Hệ thống Thông tin tại Đại học Sydney, trước khi phát triển chuyên sâu về An ninh mạng trong chương trình Thạc sĩ tại UTS. Trải qua nhiều vai trò từ quản trị dữ liệu, điều phối cộng đồng, tới xử lý bảo mật hệ thống, tôi không ngừng trau dồi để kết nối giữa kỹ thuật và con người, giữa bảo mật và tầm nhìn phát triển bền vững.
+    </p>
+  </section>
+
+  <section id="expertise" class="container mx-auto my-10 px-4">
+    <h2 class="text-2xl font-semibold border-b pb-2 mb-4">Góc chuyên môn</h2>
+    <ul class="list-disc pl-5 space-y-2">
+      <li><strong>SQL Injection Lab:</strong> Khai thác lỗ hổng SQLi trên DVWA</li>
+      <li><strong>Firewall & OSPF Lab:</strong> Thiết kế mạng an toàn bằng Cisco Packet Tracer</li>
+      <li><strong>SIEM Investigation:</strong> Truy vết tấn công brute-force qua Splunk & MITRE ATT&CK</li>
+      <li><strong>Cloud IAM Misconfiguration:</strong> Phân tích và vá lỗi phân quyền AWS IAM</li>
+    </ul>
+  </section>
+
+  <section id="vision" class="container mx-auto my-10 px-4">
+    <h2 class="text-2xl font-semibold border-b pb-2 mb-4">Tầm nhìn & Mục tiêu</h2>
+    <ul class="list-disc pl-5 space-y-2">
+      <li><strong>Ngắn hạn (2025–2026):</strong> Làm việc tại Việt Nam trong vai trò SOC Analyst hoặc Security Consultant, hoàn thiện các chứng chỉ chuyên sâu như Security+, OSCP</li>
+      <li><strong>Trung hạn (2026–2028):</strong> Dẫn dắt dự án an ninh mạng tại doanh nghiệp lớn, phát triển kênh chia sẻ kiến thức cộng đồng (blog hoặc mentoring)</li>
+      <li><strong>Dài hạn (2028+):</strong> Trở thành chuyên gia tư vấn chiến lược an toàn thông tin, hỗ trợ chuyển đổi số bền vững cho Việt Nam và khu vực</li>
+    </ul>
+  </section>
+
+  <section id="contact" class="container mx-auto my-10 px-4">
+    <h2 class="text-2xl font-semibold border-b pb-2 mb-4">Liên hệ</h2>
+    <p>Email: <a href="mailto:ndta0612@gmail.com" class="text-blue-800">ndta0612@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/ductuananh" class="text-blue-800" target="_blank">linkedin.com/in/ductuananh</a></p>
+    <p>GitHub: <a href="https://github.com/ductuananh-cyber" class="text-blue-800" target="_blank">github.com/ductuananh-cyber</a></p>
+  </section>
+
+  <footer class="bg-blue-100 text-center p-4 mt-10 text-sm italic">
+    <p>&copy; 2025 Nguyễn Đức Tuấn Anh – Tâm sáng, trí rộng, hành động bền vững.</p>
+  </footer>
+</body>
+</html>
