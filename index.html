@@ -36,6 +36,8 @@
       padding-left: 2rem;
       border-left: 4px solid #2563eb;
       margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
     }
     .timeline-item::before {
       content: '';
@@ -46,6 +48,11 @@
       height: 1rem;
       background-color: #2563eb;
       border-radius: 9999px;
+    }
+    .timeline-icon {
+      width: 40px;
+      height: 40px;
+      margin-right: 16px;
     }
   </style>
 </head>
@@ -84,17 +91,14 @@
     </section>
 
     <section id="about">
-      <!-- (Giữ nguyên phần Giới thiệu) -->
       [GIỮ NGUYÊN PHẦN GIỚI THIỆU NHƯ CŨ]
     </section>
 
     <section id="career">
-      <!-- (Giữ nguyên phần Góc chuyên môn) -->
       [GIỮ NGUYÊN PHẦN GÓC CHUYÊN MÔN NHƯ CŨ]
     </section>
 
     <section id="vision">
-      <!-- (Giữ nguyên phần Tầm nhìn) -->
       [GIỮ NGUYÊN PHẦN TẦM NHÌN NHƯ CŨ]
     </section>
 
@@ -102,26 +106,37 @@
       <h2 class="text-2xl font-bold mt-10 mb-6">🕒 Hành trình phát triển</h2>
       <div class="space-y-6">
         <div class="timeline-item">
-          <h3 class="font-semibold text-blue-700">2000–2015</h3>
-          <p>Sinh ra và học tại Moscow, Nga – hoàn tất lớp 9 theo hệ Nga.</p>
+          <img src="https://cdn-icons-png.flaticon.com/512/1076/1076928.png" alt="school" class="timeline-icon">
+          <div>
+            <h3 class="font-semibold text-blue-700">2000–2015</h3>
+            <p>Sinh ra và học tại Moscow, Nga – hoàn tất lớp 9 theo hệ Nga.</p>
+          </div>
         </div>
         <div class="timeline-item">
-          <h3 class="font-semibold text-blue-700">2015–2019</h3>
-          <p>Học tại BVIS Hà Nội – hoàn tất chương trình IGCSE và A-Level bằng tiếng Anh.</p>
+          <img src="https://cdn-icons-png.flaticon.com/512/906/906175.png" alt="BVIS" class="timeline-icon">
+          <div>
+            <h3 class="font-semibold text-blue-700">2015–2019</h3>
+            <p>Học tại BVIS Hà Nội – hoàn tất chương trình IGCSE và A-Level bằng tiếng Anh.</p>
+          </div>
         </div>
         <div class="timeline-item">
-          <h3 class="font-semibold text-blue-700">2019–2022</h3>
-          <p>Hoàn tất Cử nhân tại University of Sydney – chuyên ngành Hệ thống thông tin và quản trị kinh doanh.</p>
+          <img src="https://cdn-icons-png.flaticon.com/512/3405/3405820.png" alt="USYD" class="timeline-icon">
+          <div>
+            <h3 class="font-semibold text-blue-700">2019–2022</h3>
+            <p>Hoàn tất Cử nhân tại University of Sydney – chuyên ngành Hệ thống thông tin và quản trị kinh doanh.</p>
+          </div>
         </div>
         <div class="timeline-item">
-          <h3 class="font-semibold text-blue-700">2023–2025</h3>
-          <p>Thạc sĩ Công nghệ Thông tin – chuyên ngành An ninh mạng tại UTS, học bổng cao học và Dean’s List.</p>
+          <img src="https://cdn-icons-png.flaticon.com/512/5974/5974636.png" alt="UTS" class="timeline-icon">
+          <div>
+            <h3 class="font-semibold text-blue-700">2023–2025</h3>
+            <p>Thạc sĩ Công nghệ Thông tin – chuyên ngành An ninh mạng tại UTS, học bổng cao học và Dean’s List.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="contact">
-      <!-- (Giữ nguyên phần Liên hệ) -->
       [GIỮ NGUYÊN PHẦN LIÊN HỆ NHƯ CŨ]
     </section>
   </div>
