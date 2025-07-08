@@ -1,117 +1,106 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nguyễn Đức Tuấn Anh – nguyenductuananh.vn</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nguyễn Đức Tuấn Anh – Road to Great</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
-    @keyframes slideInCenter {
-      from { opacity: 0; transform: translateY(-50px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes sparkleOnce {
-      0% { filter: brightness(1); }
-      50% { filter: brightness(1.4); }
-      100% { filter: brightness(1); }
-    }
-    @keyframes movingStripesOnce {
-      0% { background-position: 0 0; }
-      100% { background-position: 100% 0; }
-    }
     .banner {
-      background: url('banner.jpg') no-repeat center center;
+      background-image: url('banner.jpg');
       background-size: cover;
-      height: 360px;
+      background-position: center;
+      height: 400px;
+      position: relative;
+    }
+
+    .banner-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .banner h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: white;
+    }
+
+    .wheel-smoke-container {
+      position: absolute;
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       display: flex;
       align-items: center;
-      justify-content: center;
-      position: relative;
-      animation: sparkleOnce 2s ease-in-out 1;
+      gap: 12px;
     }
-    .banner h1 {
-      font-size: 2.25rem;
-      color: white;
-      font-weight: bold;
-      animation: slideInCenter 1.5s ease-out 1;
-      text-align: center;
+
+    .wheel-spin {
+      width: 80px;
+      height: 80px;
+      animation: spinOnce 1.2s linear 1;
     }
-    .motion-lines {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      height: 8px;
-      background: repeating-linear-gradient(
-        45deg,
-        #00f 0,
-        #00f 10px,
-        #fff 10px,
-        #fff 20px
-      );
-      background-size: 200% 100%;
-      animation: movingStripesOnce 2s ease-in-out 1;
-      opacity: 0.7;
+
+    .smoke-trail {
+      width: 100px;
+      height: 40px;
+      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.5), transparent);
+      opacity: 0;
+      animation: smokeFade 2s ease-out 1;
+      border-radius: 50%;
+    }
+
+    @keyframes spinOnce {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(720deg); }
+    }
+
+    @keyframes smokeFade {
+      0%   { transform: translateX(0);     opacity: 0.8; }
+      100% { transform: translateX(100px); opacity: 0;   }
     }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
-  <header class="banner">
-    <h1>Nguyễn Đức Tuấn Anh – Road to Great</h1>
-    <div class="motion-lines"></div>
-  </header>
+<body class="bg-gray-100">
 
-  <nav class="bg-white shadow-md sticky top-0 z-50">
-    <div class="container mx-auto flex justify-center space-x-6 py-3 text-blue-900 font-medium">
-      <a href="#home" class="hover:underline">Trang chủ</a>
-      <a href="#journey" class="hover:underline">Giới thiệu</a>
-      <a href="#expertise" class="hover:underline">Góc chuyên môn</a>
-      <a href="#vision" class="hover:underline">Tầm nhìn</a>
-      <a href="#contact" class="hover:underline">Liên hệ</a>
+  <!-- Banner Section -->
+  <div class="banner">
+    <div class="banner-overlay">
+      <h1>Nguyễn Đức Tuấn Anh – Road to Great</h1>
+
+      <!-- Hiệu ứng bánh xe quay + khói -->
+      <div class="wheel-smoke-container">
+        <img src="amglogo.jpg" alt="Spinning Wheel" class="wheel-spin" />
+        <div class="smoke-trail"></div>
+      </div>
     </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="bg-white shadow mt-[-5px]">
+    <ul class="flex justify-center space-x-8 py-4 text-blue-900 font-semibold">
+      <li><a href="#">Trang chủ</a></li>
+      <li><a href="#">Giới thiệu</a></li>
+      <li><a href="#">Góc chuyên môn</a></li>
+      <li><a href="#">Tầm nhìn</a></li>
+      <li><a href="#">Liên hệ</a></li>
+    </ul>
   </nav>
 
-  <section id="home" class="container mx-auto my-10 px-4">
-    <h2 class="text-2xl font-semibold border-b pb-2 mb-4">Tổng quan</h2>
-    <p class="leading-relaxed">
-      Chào mừng đến với trang cá nhân của Nguyễn Đức Tuấn Anh – Chuyên gia An ninh mạng, tốt nghiệp loại xuất sắc tại Đại học Công nghệ Sydney (UTS) và được vinh danh Dean's List 2025. Trang web này là nơi tổng hợp hành trình, góc nhìn chuyên môn, dự án tiêu biểu và định hướng phát triển cá nhân trong lĩnh vực cybersecurity.
-    </p>
-  </section>
-
-  <section id="journey" class="container mx-auto my-10 px-4">
-    <h2 class="text-2xl font-semibold border-b pb-2 mb-4">Giới thiệu & Hành trình</h2>
+  <!-- Nội dung chính -->
+  <section class="p-6">
+    <h2 class="text-2xl font-semibold mb-4">Tổng quan</h2>
     <p>
-      Tôi khởi đầu với nền tảng song song giữa Kinh doanh và Hệ thống Thông tin tại Đại học Sydney, trước khi phát triển chuyên sâu về An ninh mạng trong chương trình Thạc sĩ tại UTS. Trải qua nhiều vai trò từ quản trị dữ liệu, điều phối cộng đồng, tới xử lý bảo mật hệ thống, tôi không ngừng trau dồi để kết nối giữa kỹ thuật và con người, giữa bảo mật và tầm nhìn phát triển bền vững.
+      Chào mừng đến với trang cá nhân của Nguyễn Đức Tuấn Anh – Chuyên gia An ninh mạng, tốt nghiệp loại xuất sắc tại Đại học Công nghệ Sydney (UTS) và được vinh danh Dean's List 2025.
+      Trang web này là nơi tổng hợp hành trình, góc nhìn chuyên môn, dự án tiêu biểu và định hướng phát triển cá nhân trong lĩnh vực cybersecurity.
     </p>
   </section>
 
-  <section id="expertise" class="container mx-auto my-10 px-4">
-    <h2 class="text-2xl font-semibold border-b pb-2 mb-4">Góc chuyên môn</h2>
-    <ul class="list-disc pl-5 space-y-2">
-      <li><strong>SQL Injection Lab:</strong> Khai thác lỗ hổng SQLi trên DVWA</li>
-      <li><strong>Firewall & OSPF Lab:</strong> Thiết kế mạng an toàn bằng Cisco Packet Tracer</li>
-      <li><strong>SIEM Investigation:</strong> Truy vết tấn công brute-force qua Splunk & MITRE ATT&CK</li>
-      <li><strong>Cloud IAM Misconfiguration:</strong> Phân tích và vá lỗi phân quyền AWS IAM</li>
-    </ul>
-  </section>
-
-  <section id="vision" class="container mx-auto my-10 px-4">
-    <h2 class="text-2xl font-semibold border-b pb-2 mb-4">Tầm nhìn & Mục tiêu</h2>
-    <ul class="list-disc pl-5 space-y-2">
-      <li><strong>Ngắn hạn (2025–2026):</strong> Làm việc tại Việt Nam trong vai trò SOC Analyst hoặc Security Consultant, hoàn thiện các chứng chỉ chuyên sâu như Security+, OSCP</li>
-      <li><strong>Trung hạn (2026–2028):</strong> Dẫn dắt dự án an ninh mạng tại doanh nghiệp lớn, phát triển kênh chia sẻ kiến thức cộng đồng (blog hoặc mentoring)</li>
-      <li><strong>Dài hạn (2028+):</strong> Trở thành chuyên gia tư vấn chiến lược an toàn thông tin, hỗ trợ chuyển đổi số bền vững cho Việt Nam và khu vực</li>
-    </ul>
-  </section>
-
-  <section id="contact" class="container mx-auto my-10 px-4">
-    <h2 class="text-2xl font-semibold border-b pb-2 mb-4">Liên hệ</h2>
-    <p>Email: <a href="mailto:ndta0612@gmail.com" class="text-blue-800">ndta0612@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/ductuananh" class="text-blue-800" target="_blank">linkedin.com/in/ductuananh</a></p>
-    <p>GitHub: <a href="https://github.com/ductuananh-cyber" class="text-blue-800" target="_blank">github.com/ductuananh-cyber</a></p>
-  </section>
-
-  <footer class="bg-blue-100 text-center p-4 mt-10 text-sm italic">
-    <p>&copy; 2025 Nguyễn Đức Tuấn Anh – Tâm sáng, trí rộng, hành động bền vững.</p>
-  </footer>
 </body>
 </html>
