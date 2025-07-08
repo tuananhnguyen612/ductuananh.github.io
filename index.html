@@ -81,6 +81,9 @@
 
   <!-- Script for Language Switching -->
   <script>
+    // Set default language to Vietnamese on load
+    document.addEventListener('DOMContentLoaded', () => switchLanguage('vi'));
+
     function switchLanguage(lang) {
       document.querySelectorAll('[data-vi]').forEach(el => {
         el.textContent = lang === 'vi' ? el.getAttribute('data-vi') : el.getAttribute('data-en');
