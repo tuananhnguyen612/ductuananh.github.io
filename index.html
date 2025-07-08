@@ -10,9 +10,10 @@
       from { opacity: 0; transform: translateY(-50px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    @keyframes zoomOnce {
-      0% { transform: scale(1.05); filter: blur(3px); }
-      100% { transform: scale(1); filter: blur(0); }
+    @keyframes textZoomOnce {
+      0% { transform: scale(1.4) rotateX(20deg); opacity: 0; }
+      40% { opacity: 1; }
+      100% { transform: scale(1) rotateX(0deg); opacity: 1; }
     }
     @keyframes movingStripes {
       0% { background-position: 0 0; }
@@ -25,15 +26,16 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      animation: zoomOnce 1.5s ease-in-out 1;
       position: relative;
+      z-index: 0;
     }
     .banner h1 {
-      font-size: 2.25rem;
+      font-size: 2.5rem;
       color: white;
       font-weight: bold;
-      animation: slideInCenter 1.5s ease-out;
+      animation: textZoomOnce 1.8s ease-out forwards;
       text-align: center;
+      z-index: 1;
     }
     .motion-lines {
       position: absolute;
@@ -49,7 +51,8 @@
       );
       background-size: 200% 100%;
       animation: movingStripes 1s linear infinite;
-      opacity: 0.7;
+      opacity: 0.8;
+      z-index: 2;
     }
   </style>
 </head>
@@ -88,29 +91,4 @@
     <ul class="list-disc pl-5 space-y-2">
       <li><strong>SQL Injection Lab:</strong> Khai thác lỗ hổng SQLi trên DVWA</li>
       <li><strong>Firewall & OSPF Lab:</strong> Thiết kế mạng an toàn bằng Cisco Packet Tracer</li>
-      <li><strong>SIEM Investigation:</strong> Truy vết tấn công brute-force qua Splunk & MITRE ATT&CK</li>
-      <li><strong>Cloud IAM Misconfiguration:</strong> Phân tích và vá lỗi phân quyền AWS IAM</li>
-    </ul>
-  </section>
-
-  <section id="vision" class="container mx-auto my-10 px-4">
-    <h2 class="text-2xl font-semibold border-b pb-2 mb-4">Tầm nhìn & Mục tiêu</h2>
-    <ul class="list-disc pl-5 space-y-2">
-      <li><strong>Ngắn hạn (2025–2026):</strong> Làm việc tại Việt Nam trong vai trò SOC Analyst hoặc Security Consultant, hoàn thiện các chứng chỉ chuyên sâu như Security+, OSCP</li>
-      <li><strong>Trung hạn (2026–2028):</strong> Dẫn dắt dự án an ninh mạng tại doanh nghiệp lớn, phát triển kênh chia sẻ kiến thức cộng đồng (blog hoặc mentoring)</li>
-      <li><strong>Dài hạn (2028+):</strong> Trở thành chuyên gia tư vấn chiến lược an toàn thông tin, hỗ trợ chuyển đổi số bền vững cho Việt Nam và khu vực</li>
-    </ul>
-  </section>
-
-  <section id="contact" class="container mx-auto my-10 px-4">
-    <h2 class="text-2xl font-semibold border-b pb-2 mb-4">Liên hệ</h2>
-    <p>Email: <a href="mailto:ndta0612@gmail.com" class="text-blue-800">ndta0612@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/ductuananh" class="text-blue-800" target="_blank">linkedin.com/in/ductuananh</a></p>
-    <p>GitHub: <a href="https://github.com/ductuananh-cyber" class="text-blue-800" target="_blank">github.com/ductuananh-cyber</a></p>
-  </section>
-
-  <footer class="bg-blue-100 text-center p-4 mt-10 text-sm italic">
-    <p>&copy; 2025 Nguyễn Đức Tuấn Anh – Tâm sáng, trí rộng, hành động bền vững.</p>
-  </footer>
-</body>
-</html>
+      <li><strong>SIEM Investigation:
